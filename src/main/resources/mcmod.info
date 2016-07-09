@@ -1,0 +1,16 @@
+[
+{
+  "modid": "simpletcon",
+  "name": "Simple Tinkers Construct Addon",
+  "description": "Adds support for Simple Ores to Tinkers Construct.",
+  "version": "0.9 Beta",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["TheOldOne"],
+  "credits": "",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]

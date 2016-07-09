@@ -1,0 +1,12 @@
+fluid.simpletcon.mythril.name=Molten Mythril
+fluid.simpletcon.adamantium.name=Molten Adamantium
+fluid.simpletcon.onyx.name=Molten Onyx
+fluid.simpletcon.thyrium.name=Molten Thyrium
+fluid.simpletcon.sinisite.name=Molten Sinisite
+
+tile.zinc_ore.name=Zinc Ore
+tile.zinc_block.name=Block of Zinc
+tile.brass_block.name=Block of Brass
+
+item.zinc_ingot.name=Zinc Ingot
+item.brass_ingot.name=Brass Ingot
