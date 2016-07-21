@@ -3,3 +3,12 @@ material.adamantium.name=Adamantium
 material.onyx.name=Onyx
 material.thyrium.name=Thyrium
 material.sinisite.name=Sinisite
+
+
+modifier.modifiable.name=Modifiable
+modifier.modifiable.desc=§oMagical§r\nThis allows more Modifiers.
+modifier.durable.name=Durable
+modifier.durable.desc=§oStrong...§r\nYour tool uses less durability.
+modifier.dwarvish.name=Dwarvish
+modifier.dwarvish.desc=§oFrom the great forge!§r\nDeal bonus damage to Nether mobs.
+modifier.dwarvish.extra=Vs Nether: +%s

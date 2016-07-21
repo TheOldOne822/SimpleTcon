@@ -26,13 +26,20 @@ import slimeknights.tconstruct.library.materials.ExtraMaterialStats;
 import slimeknights.tconstruct.library.materials.HandleMaterialStats;
 import slimeknights.tconstruct.library.materials.HeadMaterialStats;
 import slimeknights.tconstruct.library.materials.Material;
+import slimeknights.tconstruct.library.traits.AbstractTrait;
 import slimeknights.tconstruct.smeltery.TinkerSmeltery;
 import slimeknights.tconstruct.tools.TinkerMaterials;
+import theoldone822.SimpleTcon.Traits.TraitDurable;
+import theoldone822.SimpleTcon.Traits.TraitDwarvish;
+import theoldone822.SimpleTcon.Traits.TraitModifiable;
 
-@Mod(modid = "simpletcon", name = "Simple Tcon addon", version = "0.9", dependencies = "required-after:tconstruct;required-after:simplecore;after:simpleores;after:fusion")
+@Mod(modid = "simpletcon", name = "Simple Tcon addon", version = "0.9RC2", dependencies = "required-after:tconstruct;required-after:simplecore;after:simpleores;after:fusion")
 public class SimpleTcon {
 
 	public static Plugin plugin = new Plugin("simpletcon", "Simple Tcon addon");
+	public static final AbstractTrait modifiable = new TraitModifiable(1);
+	public static final AbstractTrait durable = new TraitDurable();
+	public static final AbstractTrait dwarvish = new TraitDwarvish();
 
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
@@ -43,12 +50,13 @@ public class SimpleTcon {
 		if (Loader.isModLoaded("simpleores")) {
 			mythril.addItem("ingotMythril", 1, Material.VALUE_Ingot);
 			mythril.setRepresentativeItem(ContentRegistry.getItem("mythril_ingot"));
-			mythril.addTrait(TinkerMaterials.writable2, HEAD);
-			mythril.addTrait(TinkerMaterials.dense);
+			mythril.addTrait(modifiable, HEAD);
+			mythril.addTrait(dwarvish, HEAD);
+			mythril.addTrait(modifiable);
 
 			adamantium.addItem("ingotAdamantium", 1, Material.VALUE_Ingot);
 			adamantium.setRepresentativeItem(ContentRegistry.getItem("adamantium_ingot"));
-			adamantium.addTrait(TinkerMaterials.dense, HEAD);
+			adamantium.addTrait(durable, HEAD);
 			adamantium.addTrait(TinkerMaterials.lightweight);
 
 			if (!Settings.enableOnyxMelting.asBoolean() && !Settings.onyxCasting.asBoolean()){
@@ -88,7 +96,7 @@ public class SimpleTcon {
 				TinkerRegistry.registerTableCasting(new ItemStack(ContentRegistry.getItem("onyx_gem"), 1), TinkerSmeltery.castGem, SimpleTinkerFluids.onyx, Material.VALUE_Ingot);
 				TinkerRegistry.registerBasinCasting(new ItemStack(ContentRegistry.getBlock("onyx_block"), 1), null, SimpleTinkerFluids.onyx, Material.VALUE_Ingot * 9);
 				
-				if(Settings.sinisiteSmelteryRecipe.asBoolean()){
+				if(Loader.isModLoaded("fusion") && Settings.sinisiteSmelteryRecipe.asBoolean()){
 				TinkerRegistry.registerAlloy(new FluidStack(SimpleTinkerFluids.sinisite, 1), new FluidStack(SimpleTinkerFluids.mythril, 1), new FluidStack(SimpleTinkerFluids.onyx, 1));
 				}
 			}
@@ -96,8 +104,8 @@ public class SimpleTcon {
 			if (Loader.isModLoaded("fusion")) {
 				thyrium.addItem("ingotThyrium", 1, Material.VALUE_Ingot);
 				thyrium.setRepresentativeItem(ContentRegistry.getItem("thyrium_ingot"));
-				thyrium.addTrait(TinkerMaterials.writable2, HEAD);
-				thyrium.addTrait(TinkerMaterials.dense, HEAD);
+				thyrium.addTrait(modifiable, HEAD);
+				thyrium.addTrait(durable, HEAD);
 				thyrium.addTrait(TinkerMaterials.lightweight);
 
 				sinisite.addItem("ingotSinisite", 1, Material.VALUE_Ingot);
@@ -217,7 +225,5 @@ public class SimpleTcon {
 				SimpleTcon.sinisite.setRenderInfo(new MaterialRenderInfo.Metal(0x173b75, 0.0f, 0.15f, 0.2f));
 			}
 		}
-
 	}
-
 }

@@ -18,7 +18,7 @@ public class Settings {
 	
 	public static void createOrLoadSettings(FMLPreInitializationEvent event) {
 		settings.setModName("Simple Tcon");
-		File configDir = new File(event.getModConfigurationDirectory() + "/AleXndr", "Simple Tcon Settings.xml");
+		File configDir = new File(event.getModConfigurationDirectory() + "/TheOldOne", "Simple Tcon Settings.xml");
 		settings.setFile(configDir);
 		
 		LogHelper.verbose("Simple Tcon", "Loading Settings...");
@@ -48,8 +48,8 @@ public class Settings {
 				thyriumSmelteryRecipe = toggles.getValueByName("thyriumSmelteryRecipe");
 			
 				ConfigEntry moreToggles = new ConfigEntry("Melting Onyx doesnt look quite right", "MoreToggles");
-				moreToggles.createNewValue("enableOnyxMelting").setActive().setDataType("@B").setCurrentValue("false").setDefaultValue("false");
-				moreToggles.createNewValue("onyxCasting").setActive().setDataType("@B").setCurrentValue("false").setDefaultValue("false");
+				moreToggles.createNewValue("enableOnyxMelting").setActive().setDataType("@B").setCurrentValue("true").setDefaultValue("true");
+				moreToggles.createNewValue("onyxCasting").setActive().setDataType("@B").setCurrentValue("true").setDefaultValue("true");
 				moreToggles.createNewValue("sinisiteSmelteryRecipe").setActive().setDataType("@B").setCurrentValue("false").setDefaultValue("false");
 				moreToggles = settings.get(moreToggles);
 					enableOnyxMelting = moreToggles.getValueByName("enableOnyxMelting");
@@ -58,7 +58,7 @@ public class Settings {
 
 			//Blocks
 			zincOre = settings.get(new ConfigBlock("Zinc Ore", "Ores").setHardness(1.7F).setResistance(5.0F).setLightValue(0.0F).setHarvestLevel(1).setHarvestTool("pickaxe")
-				.setSpawnRate(25).setVeinSize(6).setMinHeight(30).setMaxHeight(90).setCreativeTab("SimpleBlocks")).asConfigBlock();
+				.setSpawnRate(20).setVeinSize(4).setMinHeight(30).setMaxHeight(80).setCreativeTab("SimpleBlocks")).asConfigBlock();
 			zincBlock = settings.get(new ConfigBlock("Block of Zinc", "Blocks").setHardness(7.0F).setResistance(12.0F).setLightValue(0.0F).setHarvestLevel(0).setHarvestTool("pickaxe")
 					.setCreativeTab("SimpleDecorations").setBeaconBase(true)).asConfigBlock();
 			brassBlock = settings.get(new ConfigBlock("Block of Brass", "Blocks").setHardness(7.0F).setResistance(12.0F).setLightValue(0.0F).setHarvestLevel(0).setHarvestTool("pickaxe")
@@ -133,7 +133,7 @@ public class Settings {
 				thyriumTinkerhandleModifer = thyriumTinker.getValueByName("HandleModifer");
 				thyriumTinkerhandleDurability = thyriumTinker.getValueByName("HandleDurability");
 				thyriumTinkerextraDurability = thyriumTinker.getValueByName("ExtraDurability");
-			sinisiteTinker = new ConfigEntry("Mythril Tinker Tools", "TinkersMaterial");
+			sinisiteTinker = new ConfigEntry("Sinisite Tinker Tools", "TinkersMaterial");
 				sinisiteTinker.createNewValue("HeadDurability").setDataType("@I").setCurrentValue("3600").setDefaultValue("3600");
 				sinisiteTinker.createNewValue("HarvestLevel").setDataType("@I").setCurrentValue("5").setDefaultValue("5");
 				sinisiteTinker.createNewValue("HarvestSpeed").setDataType("@F").setCurrentValue("17.00").setDefaultValue("17.00");
@@ -173,5 +173,4 @@ public class Settings {
 	public static ConfigValue sinisiteTinkerHeadDurability, sinisiteTinkerHarvestLevel, sinisiteTinkerHarvestSpeed, sinisiteTinkerDamageVsEntity, sinisiteTinkerhandleModifer, sinisiteTinkerhandleDurability, sinisiteTinkerextraDurability;
 
 	public static ConfigValue enableBrass, enableOnyxMelting, onyxCasting, thyriumSmelteryRecipe, sinisiteSmelteryRecipe;
-; 
 }

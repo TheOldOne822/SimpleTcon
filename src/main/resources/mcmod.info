@@ -3,7 +3,7 @@
   "modid": "simpletcon",
   "name": "Simple Tinkers Construct Addon",
   "description": "Adds support for Simple Ores to Tinkers Construct.",
-  "version": "0.9 Beta",
+  "version": "0.9 RC2",
   "mcversion": "${mcversion}",
   "url": "",
   "updateUrl": "",
