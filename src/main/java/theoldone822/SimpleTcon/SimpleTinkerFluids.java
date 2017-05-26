@@ -24,6 +24,7 @@ import net.minecraftforge.fml.common.registry.IForgeRegistryEntry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import slimeknights.mantle.item.ItemBlockMeta;
+import slimeknights.tconstruct.library.fluid.FluidMolten;
 import slimeknights.tconstruct.smeltery.block.BlockMolten;
 
 public class SimpleTinkerFluids {
@@ -33,6 +34,16 @@ public class SimpleTinkerFluids {
 	public static FluidMolten onyx;
 	public static FluidMolten thyrium;
 	public static FluidMolten sinisite;
+	public static FluidMolten fyrite;
+	public static FluidMolten malachite;
+	public static FluidMolten ashstone;
+	public static FluidMolten illumenite;
+	public static FluidMolten dragonstone;
+	public static FluidMolten argonite;
+	public static FluidMolten cinderstone;
+	public static FluidMolten thraka;
+	public static FluidMolten pyralis;
+	public static FluidMolten dragonbezoar;
 
 	public static void setupFluids(FMLPreInitializationEvent event) {
 
@@ -61,6 +72,51 @@ public class SimpleTinkerFluids {
 				registerMoltenBlock(sinisite);
 			}
 		}
+		
+		if (Loader.isModLoaded("netherrocks")){
+			fyrite = fluidMetal("fyrite", 0xFC3300);
+			fyrite.setTemperature(1000);
+			registerMoltenBlock(fyrite);
+			
+			malachite = fluidMetal("malachite", 0x08DC73);
+			malachite.setTemperature(900);
+			registerMoltenBlock(malachite);
+			
+			illumenite = fluidMetal("illumenite", 0xFFFFA7);
+			illumenite.setTemperature(980);
+			registerMoltenBlock(illumenite);
+			
+			argonite = fluidMetal("argonite", 0x32004D);
+			argonite.setTemperature(950);
+			registerMoltenBlock(argonite);
+			
+			if (Settings.enableOnyxMelting.asBoolean()){
+				ashstone = fluidMetal("ashstone", 0x898989);
+				ashstone.setTemperature(850);
+				registerMoltenBlock(ashstone);
+				
+				dragonstone = fluidMetal("dragonstone", 0x661E16);
+				dragonstone.setTemperature(1000);
+				registerMoltenBlock(dragonstone);
+			}
+			if (Loader.isModLoaded("netherrocksfusion")) {
+				cinderstone = fluidMetal("cinderstone", 0xFFB266);
+				cinderstone.setTemperature(1000);
+				registerMoltenBlock(cinderstone);
+				
+				thraka = fluidMetal("thraka", 0x1D8546);
+				thraka.setTemperature(1000);
+				registerMoltenBlock(thraka);
+				
+				pyralis = fluidMetal("pyralis", 0xC64E18);
+				pyralis.setTemperature(1000);
+				registerMoltenBlock(pyralis);
+				
+				dragonbezoar = fluidMetal("dragonbezoar", 0x693D47);
+				dragonbezoar.setTemperature(1000);
+				registerMoltenBlock(dragonbezoar);
+			}
+		}
 
 		if (event.getSide().isClient()) {
 			if (Loader.isModLoaded("simpleores")) {
@@ -72,6 +128,22 @@ public class SimpleTinkerFluids {
 				if (Loader.isModLoaded("fusion")) {
 					registerFluidModels(thyrium);
 					registerFluidModels(sinisite);
+				}
+			}
+			if (Loader.isModLoaded("netherrocks")){
+				registerFluidModels(fyrite);
+				registerFluidModels(malachite);
+				registerFluidModels(illumenite);
+				registerFluidModels(argonite);
+				if (Settings.enableOnyxMelting.asBoolean()){
+					registerFluidModels(ashstone);
+					registerFluidModels(dragonstone);
+				}
+				if (Loader.isModLoaded("netherrocksfusion")) {
+					registerFluidModels(cinderstone);
+					registerFluidModels(thraka);
+					registerFluidModels(pyralis);
+					registerFluidModels(dragonbezoar);
 				}
 			}
 		}

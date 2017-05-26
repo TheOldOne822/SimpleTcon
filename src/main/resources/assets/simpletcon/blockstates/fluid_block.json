@@ -18,6 +18,36 @@
         }],
         "sinisite": [{
             "custom": { "fluid": "sinisite" }
+        }],
+        "fyrite": [{
+            "custom": { "fluid": "fyrite" }
+        }],
+        "malachite": [{
+            "custom": { "fluid": "malachite" }
+        }],
+        "ashstone": [{
+            "custom": { "fluid": "ashstone" }
+        }],
+        "illumenite": [{
+            "custom": { "fluid": "illumenite" }
+        }],
+        "dragonstone": [{
+            "custom": { "fluid": "dragonstone" }
+        }],
+        "argonite": [{
+            "custom": { "fluid": "argonite" }
+        }],
+        "cinderstone": [{
+            "custom": { "fluid": "cinderstone" }
+        }],
+        "thraka": [{
+            "custom": { "fluid": "thraka" }
+        }],
+        "pyralis": [{
+            "custom": { "fluid": "pyralis" }
+        }],
+        "dragonbezoar": [{
+            "custom": { "fluid": "dragonbezoar" }
         }]
     }
 }
